@@ -18,6 +18,7 @@ public class UserController {
 	
 	@RequestMapping("/{id}")
 	public User view(@PathVariable("id") Long id) {
+		
 		User user = new User();
 		user.setId(id);
 		user.setName("zhang");

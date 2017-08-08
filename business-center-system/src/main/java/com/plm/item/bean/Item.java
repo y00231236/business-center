@@ -2,9 +2,15 @@ package com.plm.item.bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@Entity
 public class Item {
+	@Id
 	private String id;
 
     private String message;

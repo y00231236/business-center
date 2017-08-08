@@ -2,6 +2,7 @@ package com.plm.item.controller;
 
 import java.util.List;
 
+import org.business.common.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+ 
 import com.plm.item.bean.Item;
 import com.plm.item.service.ItemService;
 
@@ -26,7 +27,7 @@ public class ItemController {
 
 	@RequestMapping("/{id}")
 	public Item view(@PathVariable("id") String id) {
-		return service.select(id);
+		return service.select(Strings.trim(id));
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
