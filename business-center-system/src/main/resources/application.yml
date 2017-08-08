@@ -3,10 +3,32 @@ server:
 spring:
   application:
     name: microservice-provider-user
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://user:123456@localhost:8761/eureka  #注册 中心已经开启认证
-  instance:
-    prefer-ip-address: true
-    instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  datasource:
+    url: jdbc:mysql://localhost:3306/zentao?characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    
+mybatis:
+  mapperLocations: mappers/*mapper.xml
+  
+datasource:
+  item:
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8
+    username: root
+    password: test1
+    driver-class-name: com.mysql.jdbc.Driver
+  product:
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8
+    username: root
+    password: test1
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
